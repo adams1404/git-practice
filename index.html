@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <style>
+            body{
+                display: flex;
+                flex-wrap:wrap;
+            }
+            .paint{
+                color:red
+            }
+
+            img {
+                width: 100%;
+                height: 100%
+            }
+
+            div {
+                border: 1px dotted blue;
+                margin: 5px;
+                width: 200px;
+                height: 200px;
+            }
+
+            .follow {
+                color:skyblue
+            }
+
+            .not {
+                color: red;
+            }
+        </style>
+    </head>
+    <body class="body">
+     <!-- <h1>Hello World </h1> -->
+
+     <script>
+        const body = document.querySelector('body')
+        const data = [
+            {   
+                name: "Adams",
+                url: 'https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1090&q=80',
+                following: true,
+                verified: false
+            },
+            {
+                name: "Olufemi",
+                url: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80',
+                following: true
+            },
+            {
+                name: "Adenike"  ,
+                url: 'https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1494&q=80' ,
+                following: false
+            },
+            {
+                name: "Jimmy"  ,
+                url: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80',
+                following: true
+            },
+            {
+                name: "Joy"  ,
+                url: 'https://images.unsplash.com/photo-1558898479-33c0057a5d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80' ,
+                following: true
+            },
+        ]
+    
+
+        let html = ''
+        for(let i=0; i < data.length; i++){
+            const follow = data[i].following ? "<p class='follow'>Followed</p>" : "<p class='not'>Not Followed</p>"
+            const name = `
+            <div>
+                <h1 class='paint'> ${data[i].name} </h1>
+                <img src="${data[i].url}">
+                ${follow}
+            </div>
+            `
+            html+=name
+        }
+
+        console.log(html)
+
+        body.innerHTML = html;
+
+    </script>
+    <body>
+</html>
